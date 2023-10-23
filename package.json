@@ -1,0 +1,43 @@
+{
+  "name": "@nandenjin/tokisoba",
+  "version": "0.0.0",
+  "description": "Countdown badge creator",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "swc src/index.ts -o dist/index.js",
+    "lint": "eslint . --ext ts",
+    "lintfix": "eslint . --ext ts --fix",
+    "format": "prettier --write \"**/*.{js,ts,tsx,jsx,json,md,yml,yaml}\"",
+    "prepare": "simple-git-hooks"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nandenjin/tokisoba.git"
+  },
+  "author": "Kazumi Inada <hello@nandenjin.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nandenjin/tokisoba/issues"
+  },
+  "homepage": "https://github.com/nandenjin/tokisoba#readme",
+  "devDependencies": {
+    "@swc/cli": "^0.1.62",
+    "@swc/core": "^1.3.94",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "lint-staged": "^15.0.2",
+    "prettier": "^3.0.3",
+    "simple-git-hooks": "^2.9.0",
+    "typescript": "^5.2.2"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.ts": "eslint --cache --fix",
+    "*.{js,ts,tsx,jsx,json,md,yml,yaml,html}": "prettier --write"
+  }
+}
