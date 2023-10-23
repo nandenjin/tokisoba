@@ -87,10 +87,10 @@ const getColorByDuration = (duration: number): string => {
 }
 
 app.get('/v1/endpoint', (req, res) => {
-  const { target } = req.query
+  const { t: target } = req.query
 
   if (target === undefined) {
-    res.status(400).json(createError('target is required'))
+    res.status(400).json(createError('parameter t is required'))
     return
   }
 
