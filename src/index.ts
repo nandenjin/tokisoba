@@ -86,7 +86,7 @@ const getColorByDuration = (duration: number): string => {
   }
 }
 
-app.get('/v1/count', (req, res) => {
+app.get('/v1/endpoint', (req, res) => {
   const { target } = req.query
 
   if (target === undefined) {
