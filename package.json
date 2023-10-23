@@ -2,11 +2,13 @@
   "name": "@nandenjin/tokisoba",
   "version": "0.0.0",
   "description": "Countdown badge creator",
-  "main": "dist/index.js",
+  "bin": "dist/index.mjs",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.mjs",
-    "build": "swc src/index.ts -o dist/index.mjs",
+    "build": "tsc",
+    "build-executable": "pkg dist/index.js -o bin/tokisoba",
     "lint": "eslint . --ext ts",
     "lintfix": "eslint . --ext ts --fix",
     "format": "prettier --write \"**/*.{js,ts,tsx,jsx,json,md,yml,yaml}\"",
@@ -31,6 +33,7 @@
     "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
     "lint-staged": "^15.0.2",
+    "pkg": "^5.8.1",
     "prettier": "^3.0.3",
     "simple-git-hooks": "^2.9.0",
     "typescript": "^5.2.2"
