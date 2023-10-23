@@ -3,8 +3,114 @@
   <head>
     <meta charset="UTF-8" />
     <title>Documentation</title>
+    <style>
+      body {
+        margin: 2rem 1rem;
+        font-family: sans-serif;
+      }
+
+      .playground {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+      }
+    </style>
   </head>
   <body>
-    <h1>tokisoba</h1>
+    <h1>🍜 tokisoba</h1>
+    <p>Countdown badge generator</p>
+    <hr />
+    <div id="app">
+      <div class="playground">
+        <table>
+          <tr>
+            <th>Target</th>
+            <td>
+              <input type="datetime-local" v-model="target" />
+            </td>
+          </tr>
+          <tr>
+            <th>Badge provider</th>
+            <td>
+              <input type="url" v-model="badgeProviderUrl" />
+            </td>
+          </tr>
+          <tr>
+            <th>Badge style</th>
+            <td>
+              <select v-model="badgeStyle">
+                <option value="" selected>(default)</option>
+                <option value="flat">flat</option>
+                <option value="flat-square">flat-square</option>
+                <option value="plastic">plastic</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <th>Preview</th>
+            <td><img :src="badgeUrl" alt="" /></td>
+          </tr>
+          <tr>
+            <th>tokisobaUrl</th>
+            <td><code>{{tokisobaUrl}}</code></td>
+          </tr>
+          <tr>
+            <th>badgeUrl</th>
+            <td><code>{{badgeUrl}}</code></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <script type="module">
+      import {
+        createApp,
+        ref,
+        computed,
+      } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+      const BADGE_ENDPOINT_PATH = '/endpoint'
+      const TOKISOBA_ENDPOINT_URL = 'https://tokisoba.nandenjin.com/v1/endpoint'
+
+      createApp({
+        setup() {
+          const target = ref(
+            new Date().toISOString().replace(/:\d\d.\d\d\dZ$/, '')
+          )
+          const badgeProviderUrl = ref('https://img.shields.io')
+          const tokisobaUrl = computed(
+            () => `${TOKISOBA_ENDPOINT_URL}?t=${target.value}`
+          )
+
+          const badgeStyle = ref('')
+          const badgeQuery = computed(() => {
+            const q = new URLSearchParams({
+              url: tokisobaUrl.value,
+            })
+
+            if (badgeStyle.value !== '') {
+              q.append('style', badgeStyle.value)
+            }
+            return q
+          })
+
+          const badgeUrl = computed(
+            () =>
+              `${
+                badgeProviderUrl.value
+              }${BADGE_ENDPOINT_PATH}?${badgeQuery.value.toString()}`
+          )
+          return {
+            target,
+            badgeProviderUrl,
+            badgeStyle,
+            tokisobaUrl,
+            badgeUrl,
+          }
+        },
+      }).mount('#app')
+    </script>
   </body>
 </html>
