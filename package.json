@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/index.mjs",
     "build": "swc src/index.ts -o dist/index.mjs",
     "lint": "eslint . --ext ts",
     "lintfix": "eslint . --ext ts --fix",
