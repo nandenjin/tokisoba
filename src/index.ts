@@ -105,7 +105,7 @@ app.get('/v1/endpoint', (req, res) => {
 
   const badgeResponse: ShieldResponse = {
     schemaVersion: 1,
-    label: 'remains',
+    label: '',
     message: getDurationString(diff),
     color: getColorByDuration(diff),
   }
