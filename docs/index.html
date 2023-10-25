@@ -2,23 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Documentation</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>tokisoba - Countdown badge generator</title>
     <style>
       body {
         margin: 2rem 1rem;
         font-family: sans-serif;
       }
 
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
       .playground {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 1rem;
+
+        @media screen and (max-width: 600px) {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      code {
+        display: block;
+        padding: 0.5rem;
+        background-color: #eee;
+        border-radius: 0.5rem;
+        word-wrap: break-word;
+        line-break: anywhere;
       }
     </style>
   </head>
   <body>
     <h1>🍜 tokisoba</h1>
-    <p>Countdown badge generator</p>
+    <p>
+      Countdown badge generator.
+      <a
+        href="https://github.com/nandenjin/tokisoba"
+        target="_blank"
+        rel="noopener"
+        >GitHub</a
+      >
+    </p>
     <hr />
     <div id="app">
       <div class="playground">
@@ -53,11 +80,11 @@
             <td><img :src="badgeUrl" alt="" /></td>
           </tr>
           <tr>
-            <th>tokisobaUrl</th>
+            <th>Endpoint</th>
             <td><code>{{tokisobaUrl}}</code></td>
           </tr>
           <tr>
-            <th>badgeUrl</th>
+            <th>Badge</th>
             <td><code>{{badgeUrl}}</code></td>
           </tr>
         </table>
