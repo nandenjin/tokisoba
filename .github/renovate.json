@@ -4,7 +4,9 @@
   "labels": ["dependencies"],
   "schedule": ["* * 17 * *"],
   "lockFileMaintenance": {
-    "enabled": true
+    "enabled": true,
+    "automerge": true,
+    "automergeType": "branch"
   },
   "packageRules": [
     {
