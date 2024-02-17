@@ -1,4 +1,4 @@
-FROM node:18-slim AS build
+FROM node:20-slim AS build
 WORKDIR /app
 COPY package.json package-lock.json tsconfig.json ./
 RUN --mount=type=cache,target=/root/.npm npm ci
