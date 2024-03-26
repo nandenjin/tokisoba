@@ -46,6 +46,6 @@
     "*.{js,ts,tsx,jsx,json,md,yml,yaml,html}": "prettier --write"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.19.2"
   }
 }
