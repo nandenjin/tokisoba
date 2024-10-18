@@ -9,7 +9,7 @@ Interactive countdown badge generator with `shields.io`. [Try it out](https://na
 
 ## Example
 
-- Countdown for `2024-10-26`: ![](https://img.shields.io/endpoint?url=https%3A%2F%2Ftokisoba.nandenjin.com%2Fv1%2Fendpoint%3Ft%3D2024-10-26T00%3A00&style=flat-square)
+- Countdown for `2025-10-26`: ![](https://img.shields.io/endpoint?url=https%3A%2F%2Ftokisoba.nandenjin.com%2Fv1%2Fendpoint%3Ft%3D2024-10-26T00%3A00&style=flat-square)
 
 ## Usage
 
