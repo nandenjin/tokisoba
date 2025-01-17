@@ -3,22 +3,11 @@
   "extends": ["config:recommended"],
   "labels": ["dependencies"],
   "schedule": ["* * 17 * *"],
+  "automerge": true,
+  "automergeType": "branch",
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true,
     "automergeType": "branch"
-  },
-  "packageRules": [
-    {
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "pin",
-        "digest",
-        "lockFileMaintenance"
-      ],
-      "automerge": true,
-      "automergeType": "branch"
-    }
-  ]
+  }
 }
